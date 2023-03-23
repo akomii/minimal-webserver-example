@@ -19,8 +19,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class TestBasicEndpoint {
     
-    private static final int PORT = 8080;
-    private static final String BASE_URI = "http://localhost:" + PORT + "/";
+    private static final String BASE_URI = "http://localhost:8080/";
     private static Server jettyServer;
     
     @BeforeClass
@@ -38,7 +37,7 @@ public class TestBasicEndpoint {
     @Test
     public void testHelloWorld() throws IOException, InterruptedException {
         HttpClient HTTPCLIENT = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI)).GET().build();
+        HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest")).GET().build();
         HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals("Hello World", response.body());
