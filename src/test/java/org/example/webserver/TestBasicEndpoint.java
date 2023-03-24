@@ -42,4 +42,22 @@ public class TestBasicEndpoint {
         assertEquals(200, response.statusCode());
         assertEquals("Hello World", response.body());
     }
+    
+    @Test
+    public void testBasicUserXML() throws IOException, InterruptedException {
+        HttpClient HTTPCLIENT = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest/user")).GET().header("Accept", "application/xml").build();
+        HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        assertEquals(200, response.statusCode());
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><user id=\"1\"><firstName>John</firstName><lastName>Doe</lastName></user>", response.body());
+    }
+    
+    @Test
+    public void testBasicUserJSON() throws IOException, InterruptedException {
+        HttpClient HTTPCLIENT = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest/user")).GET().header("Accept", "application/json").build();
+        HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        assertEquals(200, response.statusCode());
+        assertEquals("{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Doe\"}", response.body());
+    }
 }

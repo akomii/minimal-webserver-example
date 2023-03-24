@@ -20,4 +20,12 @@ public class BasicEndpoint {
         LOGGER.log(Level.INFO, "I was called");
         return "Hello World";
     }
+    
+    @GET
+    @Path("/user")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public BasicUser getBasicUser() {
+        LOGGER.log(Level.INFO, "I return a User");
+        return new BasicUser(1, "John", "Doe");
+    }
 }
