@@ -19,7 +19,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class TestBasicEndpoint {
     
-    private static final String BASE_URI = "http://localhost:8080/";
+    private static final String BASE_URI = "http://localhost:8080";
     private static Server jettyServer;
     
     @BeforeClass
