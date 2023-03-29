@@ -1,5 +1,6 @@
 package org.example.webserver.rest;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -13,12 +14,15 @@ import java.util.logging.Logger;
 public class BasicEndpoint {
     
     private static final Logger LOGGER = Logger.getLogger(BasicEndpoint.class.getName());
-    
+    @Inject
+    private InjectableComponentInterface counter;
+   
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getHelloWorld() {
-        LOGGER.log(Level.INFO, "I was called");
-        return "Hello World";
+    	int count = counter.countUp();
+        LOGGER.log(Level.INFO, "I was called "+count);
+        return "Hello World "+count;
     }
     
     @GET

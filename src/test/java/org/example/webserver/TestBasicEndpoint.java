@@ -2,7 +2,9 @@ package org.example.webserver;
 
 
 import org.eclipse.jetty.server.Server;
+import org.example.webserver.rest.AppScopeComponent;
 import org.example.webserver.rest.BasicEndpoint;
+import org.example.webserver.rest.InjectableComponentInterface;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.junit.AfterClass;
@@ -25,6 +27,11 @@ public class TestBasicEndpoint {
     @BeforeClass
     public static void startServer() throws Exception {
         ResourceConfig config = new ResourceConfig(BasicEndpoint.class);
+        AppScopeComponent inst = new AppScopeComponent();
+        AppBinder binder = new AppBinder();
+        binder.setAppComponent(inst);
+        config.register(binder);
+        
         jettyServer = JettyHttpContainerFactory.createServer(URI.create(BASE_URI), config);
         jettyServer.start();
     }
@@ -40,7 +47,12 @@ public class TestBasicEndpoint {
         HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest")).GET().build();
         HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
-        assertEquals("Hello World", response.body());
+        assertEquals("Hello World 0", response.body());
+        // second call
+        response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        assertEquals(200, response.statusCode());
+        assertEquals("Hello World 1", response.body());
+        
     }
     
     @Test
