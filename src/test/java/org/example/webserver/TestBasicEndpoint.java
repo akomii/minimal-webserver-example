@@ -43,32 +43,31 @@ public class TestBasicEndpoint {
     
     @Test
     public void testHelloWorld() throws IOException, InterruptedException {
-        HttpClient HTTPCLIENT = HttpClient.newHttpClient();
+        HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest")).GET().build();
-        HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
-        assertEquals("Hello World 0", response.body());
+        assertEquals("You called Hello World 1 time", response.body());
         // second call
-        response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
-        assertEquals("Hello World 1", response.body());
-        
+        assertEquals("You called Hello World 2 times", response.body());
     }
     
     @Test
     public void testBasicUserXML() throws IOException, InterruptedException {
-        HttpClient HTTPCLIENT = HttpClient.newHttpClient();
+        HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest/user")).GET().header("Accept", "application/xml").build();
-        HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><user id=\"1\"><firstName>John</firstName><lastName>Doe</lastName></user>", response.body());
     }
     
     @Test
     public void testBasicUserJSON() throws IOException, InterruptedException {
-        HttpClient HTTPCLIENT = HttpClient.newHttpClient();
+        HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(URI.create(BASE_URI + "/the/best/rest/user")).GET().header("Accept", "application/json").build();
-        HttpResponse<String> response = HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals("{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Doe\"}", response.body());
     }
