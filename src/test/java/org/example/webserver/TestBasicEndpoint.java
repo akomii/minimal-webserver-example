@@ -4,7 +4,6 @@ package org.example.webserver;
 import org.eclipse.jetty.server.Server;
 import org.example.webserver.rest.AppScopeComponent;
 import org.example.webserver.rest.BasicEndpoint;
-import org.example.webserver.rest.InjectableComponentInterface;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.junit.AfterClass;

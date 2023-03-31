@@ -26,11 +26,18 @@
             <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Release for Jakarta EE9-->
+        <!-- Standard Web application API (Release for Jakarta EE9) -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Jakarta Server API for WebSocket endpoints (Release for Jakarta EE9) -->
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <version>2.0.0</version>
             <scope>provided</scope>
         </dependency>
         <!-- JAX-RS Implementation -->
