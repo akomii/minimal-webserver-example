@@ -20,8 +20,8 @@ public class BasicEndpoint {
     @Produces(MediaType.TEXT_PLAIN)
     public String getHelloWorld() {
         int count = counter.countUp();
-        log.log(Level.INFO, "I was called " + count + " " + (count == 1 ? "time" : "times"));
-        return "You called Hello World " + count + " " + (count == 1 ? "time" : "times");
+        log.log(Level.INFO, String.format("I was called %d %s", count, (count == 1 ? "time" : "times")));
+        return String.format("You called Hello World %d %s", count, (count == 1 ? "time" : "times"));
     }
     
     @GET

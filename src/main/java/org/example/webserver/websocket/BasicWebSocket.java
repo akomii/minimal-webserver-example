@@ -17,30 +17,35 @@ public class BasicWebSocket {
     
     @OnOpen
     public void onOpen(Session session) {
-        log.log(Level.INFO, "WebSocket opened for " + session.getId());
+        log.log(Level.INFO, String.format("WebSocket opened for %s", session.getId()));
         SESSIONS.add(session);
     }
     
     @OnMessage
     public void onMessage(String message, Session session) throws EncodeException, IOException {
-        log.log(Level.INFO, "Message received from " + session.getId() + ": " + message);
+        log.log(Level.INFO, String.format("Message received from %s: %s", session.getId(), message));
         session.getBasicRemote().sendObject(message);
     }
     
-    public void broadcastMessage(String message) throws EncodeException, IOException {
+    public void broadcastMessage(String message) {
         for (Session session : SESSIONS) {
-            session.getBasicRemote().sendObject(message);
+            try {
+                log.log(Level.INFO, String.format("Broadcasting message to %s: %s", session.getId(), message));
+                session.getBasicRemote().sendObject(message);
+            } catch (IOException | EncodeException e) {
+                log.log(Level.SEVERE, "Failed to broadcast message: " + e.getMessage());
+            }
         }
     }
     
     @OnClose
     public void onClose(Session session, CloseReason reason) {
-        log.log(Level.INFO, "WebSocket closed for " + session.getId() + ": " + reason.getReasonPhrase());
+        log.log(Level.INFO, String.format("WebSocket closed for %s: %s", session.getId(), reason.getReasonPhrase()));
         SESSIONS.remove(session);
     }
     
     @OnError
     public void onError(Session session, Throwable throwable) {
-        log.log(Level.SEVERE, "WebSocket error for " + session.getId() + ": " + throwable.getMessage());
+        log.log(Level.SEVERE, String.format("WebSocket error for %s: %s", session.getId(), throwable.getMessage()));
     }
 }
