@@ -13,9 +13,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>3.0.9</jersey.version>
-        <jetty.version>11.0.12</jetty.version>
         <jackson.version>2.14.2</jackson.version>
         <jaxb.version>4.0.2</jaxb.version>
+        <jetty.version>11.0.12</jetty.version>
         <jupiter.version>5.0.8</jupiter.version>
     </properties>
 
@@ -29,9 +29,9 @@
         </dependency>
         <!-- Standard Web application API (Release for Jakarta EE9) -->
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>5.0.0</version>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.0.0</version>
             <scope>provided</scope>
         </dependency>
         <!-- Jakarta Server API for WebSocket endpoints (Release for Jakarta EE9) -->

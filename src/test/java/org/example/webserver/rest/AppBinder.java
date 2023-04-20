@@ -12,5 +12,4 @@ public class AppBinder extends AbstractBinder {
     protected void configure() {
         bind(appComponent).to(InjectableComponentInterface.class);
     }
-    
 }
