@@ -33,7 +33,7 @@ public class BasicWebSocket {
                 log.log(Level.INFO, String.format("Broadcasting message to %s: %s", session.getId(), message));
                 session.getBasicRemote().sendObject(message);
             } catch (IOException | EncodeException e) {
-                log.log(Level.SEVERE, "Failed to broadcast message: " + e.getMessage());
+                log.log(Level.SEVERE, String.format("Failed to broadcast message: %s", e.getMessage()));
             }
         }
     }

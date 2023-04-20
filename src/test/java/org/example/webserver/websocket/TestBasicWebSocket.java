@@ -72,7 +72,7 @@ class TestBasicWebSocket {
         assertEquals(message1, receivedMessage2);
         // Close session1 and broadcast another message
         session1.close();
-        TimeUnit.SECONDS.sleep(5); // wait a bit so that server also closes session
+        TimeUnit.SECONDS.sleep(5); // wait a bit so that server also closes session1
         String message2 = "Broadcast message 2";
         basicWebSocket.broadcastMessage(message2);
         // Check received messages
