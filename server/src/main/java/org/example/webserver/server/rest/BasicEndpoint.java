@@ -1,4 +1,4 @@
-package org.example.webserver.rest;
+package org.example.webserver.server.rest;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;

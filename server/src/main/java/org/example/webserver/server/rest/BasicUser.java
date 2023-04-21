@@ -1,4 +1,4 @@
-package org.example.webserver.rest;
+package org.example.webserver.server.rest;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

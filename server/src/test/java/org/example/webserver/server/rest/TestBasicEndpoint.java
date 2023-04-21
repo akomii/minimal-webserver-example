@@ -1,5 +1,4 @@
-package org.example.webserver.rest;
-
+package org.example.webserver.server.rest;
 
 import org.eclipse.jetty.server.Server;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;

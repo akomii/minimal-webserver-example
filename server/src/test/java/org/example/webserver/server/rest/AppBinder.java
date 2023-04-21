@@ -1,4 +1,4 @@
-package org.example.webserver.rest;
+package org.example.webserver.server.rest;
 
 import lombok.Setter;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
