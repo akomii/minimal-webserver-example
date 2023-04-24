@@ -38,17 +38,23 @@
             <artifactId>spring-boot-starter-jetty</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+        <!-- Standard Jakarta web application API -->
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>${jakarta-webservice.version}</version>
+        </dependency>
         <!-- Jersey framework for RESTful web services inside Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-        <!-- Jakarta API for HTTP request and responses -->
+        <!-- Jakarta Server API for WebSocket endpoints -->
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>5.0.0</version>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <version>${jakarta-websocket.version}</version>
         </dependency>
     </dependencies>
 
