@@ -5,9 +5,9 @@ import org.example.webserver.server.rest.BasicEndpoint;
 import org.example.webserver.server.rest.InjectableComponentInterface;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
-@Component
+@Configuration
 public class BasicEndpointConfig extends ResourceConfig {
     public BasicEndpointConfig() {
         register(BasicEndpoint.class);
