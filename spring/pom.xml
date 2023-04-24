@@ -20,8 +20,7 @@
             <artifactId>server</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- TODO better comments -->
-        <!-- Spring Boot Starter Web -->
+        <!-- Basic dependencies to build a web application with Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -33,19 +32,19 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Jetty server -->
+        <!-- Jetty server for Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-        <!-- Jersey server -->
+        <!-- Jersey framework for RESTful web services inside Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-        <!-- Jakarta Servlet API -->
+        <!-- Jakarta API for HTTP request and responses -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -56,7 +55,7 @@
     <build>
         <plugins>
             <plugin>
-                <!-- Execute application in local pre-configured Tomcat server -->
+                <!-- Execute application in local pre-configured server -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
