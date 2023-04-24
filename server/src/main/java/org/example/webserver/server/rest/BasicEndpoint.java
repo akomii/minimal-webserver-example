@@ -28,7 +28,7 @@ public class BasicEndpoint {
     @Path("/user")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public BasicUser getBasicUser() {
-        log.log(Level.INFO, "I return a User");
+        log.log(Level.INFO, "I returned John Doe");
         return new BasicUser(1, "John", "Doe");
     }
 }
