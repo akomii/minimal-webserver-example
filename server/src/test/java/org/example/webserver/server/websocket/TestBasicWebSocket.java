@@ -49,7 +49,7 @@ class TestBasicWebSocket {
         try (Session session = container.connectToServer(client, DEFAULT_ENDPOINT)) {
             session.getBasicRemote().sendText("Hello, WebSocket!");
             String receivedMessage = client.messageQueue.poll(5, TimeUnit.SECONDS);
-            assertEquals("Hello, WebSocket!", receivedMessage);
+            assertEquals("You sent: Hello, WebSocket!", receivedMessage);
         }
     }
     

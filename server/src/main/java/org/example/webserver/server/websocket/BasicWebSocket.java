@@ -24,7 +24,7 @@ public class BasicWebSocket {
     @OnMessage
     public void onMessage(String message, Session session) throws EncodeException, IOException {
         log.log(Level.INFO, String.format("Message received from %s: %s", session.getId(), message));
-        session.getBasicRemote().sendObject(message);
+        session.getBasicRemote().sendObject(String.format("You sent: %s", message));
     }
     
     public void broadcastMessage(String message) {
