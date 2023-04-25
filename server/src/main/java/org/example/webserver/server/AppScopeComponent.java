@@ -1,4 +1,4 @@
-package org.example.webserver.server.rest;
+package org.example.webserver.server;
 
 public class AppScopeComponent implements InjectableComponentInterface {
     private int counter;

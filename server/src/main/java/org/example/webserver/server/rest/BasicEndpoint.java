@@ -6,6 +6,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import lombok.extern.java.Log;
+import org.example.webserver.server.InjectableComponentInterface;
 
 import java.util.logging.Level;
 

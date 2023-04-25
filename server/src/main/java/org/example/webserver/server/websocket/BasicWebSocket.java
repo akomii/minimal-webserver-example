@@ -1,8 +1,10 @@
 package org.example.webserver.server.websocket;
 
+import jakarta.inject.Inject;
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
 import lombok.extern.java.Log;
+import org.example.webserver.server.InjectableComponentInterface;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -12,6 +14,9 @@ import java.util.logging.Level;
 @Log
 @ServerEndpoint("/the/best/websocket")
 public class BasicWebSocket {
+    
+    @Inject
+    private InjectableComponentInterface counter;
     
     private static final Set<Session> SESSIONS = new HashSet<>();
     
@@ -23,8 +28,9 @@ public class BasicWebSocket {
     
     @OnMessage
     public void onMessage(String message, Session session) throws EncodeException, IOException {
+        int count = counter.countUp();
         log.log(Level.INFO, String.format("Message received from %s: %s", session.getId(), message));
-        session.getBasicRemote().sendObject(String.format("You sent: %s", message));
+        session.getBasicRemote().sendObject(String.format("This endpoint was called %d %s", count, (count == 1 ? "time" : "times")));
     }
     
     public void broadcastMessage(String message) {
