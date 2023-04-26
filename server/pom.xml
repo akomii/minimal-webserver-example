@@ -82,6 +82,7 @@
             <version>${jersey.version}</version>
         </dependency>
 
+
         <!-- Testing Framework -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -102,17 +103,17 @@
             <version>2.0.6</version>
             <scope>test</scope>
         </dependency>
-        <!-- Pre-configured Jetty server with the Jersey JAX-RS implementation -->
-        <!--
-            jersey-container-jetty-http: 3.0.9
-            jetty-server: 11.0.12
-            jetty-util: 11.0.12
-            jersey-common: 3.0.9
-            jersey-server: 3.0.9
-        -->
+        <!-- Jetty web server and servlet container -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Core functionality for running a JAX-RS application in servlet container  -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-jetty-http</artifactId>
+            <artifactId>jersey-container-servlet-core</artifactId>
             <version>${jersey.version}</version>
             <scope>test</scope>
         </dependency>
