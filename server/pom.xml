@@ -16,13 +16,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <!-- Automatic Resource Management-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <!-- Standard Jakarta web application API -->
         <dependency>
             <groupId>jakarta.ws.rs</groupId>

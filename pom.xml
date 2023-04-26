@@ -13,7 +13,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.26</lombok.version>
         <jetty.version>11.0.12</jetty.version>
         <jersey.version>3.0.9</jersey.version>
         <jackson.version>2.14.2</jackson.version>
@@ -24,4 +23,14 @@
         <jakarta-webservice.version>3.0.0</jakarta-webservice.version>
         <jakarta-websocket.version>2.0.0</jakarta-websocket.version>
     </properties>
+
+    <dependencies>
+        <!-- Automatic Resource Management-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
