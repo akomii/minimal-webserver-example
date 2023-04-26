@@ -5,6 +5,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import lombok.Setter;
 import lombok.extern.java.Log;
 import org.example.webserver.server.InjectableComponentInterface;
 
@@ -15,6 +16,7 @@ import java.util.logging.Level;
 public class BasicEndpoint {
     
     @Inject
+    @Setter
     private InjectableComponentInterface counter;
     
     @GET
