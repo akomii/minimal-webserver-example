@@ -1,11 +1,13 @@
 package org.example.webserver.server.rest;
 
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import org.example.webserver.server.AppScopeComponent;
+import org.example.webserver.server.InjectableComponentInterface;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
+@AllArgsConstructor
 public class AppBinder extends AbstractBinder {
     
-    @Setter
     AppScopeComponent appComponent;
     
     @Override

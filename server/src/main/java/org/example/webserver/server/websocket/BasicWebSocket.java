@@ -3,6 +3,7 @@ package org.example.webserver.server.websocket;
 import jakarta.inject.Inject;
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
+import lombok.Setter;
 import lombok.extern.java.Log;
 import org.example.webserver.server.InjectableComponentInterface;
 
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 public class BasicWebSocket {
     
     @Inject
+    @Setter
     private InjectableComponentInterface counter;
     
     private static final Set<Session> SESSIONS = new HashSet<>();
