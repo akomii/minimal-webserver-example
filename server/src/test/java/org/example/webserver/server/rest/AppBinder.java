@@ -8,10 +8,10 @@ import org.glassfish.hk2.utilities.binding.AbstractBinder;
 @AllArgsConstructor
 public class AppBinder extends AbstractBinder {
     
-    private AppScopeComponent appComponent;
+    private AppScopeComponent appScopeComponent;
     
     @Override
     protected void configure() {
-        bind(appComponent).to(InjectableComponentInterface.class);
+        bind(appScopeComponent).to(InjectableComponentInterface.class);
     }
 }

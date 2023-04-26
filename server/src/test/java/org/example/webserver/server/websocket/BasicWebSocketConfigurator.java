@@ -7,13 +7,13 @@ import org.example.webserver.server.AppScopeComponent;
 @AllArgsConstructor
 public class BasicWebSocketConfigurator extends Configurator {
     
-    private AppScopeComponent appComponent;
+    private AppScopeComponent appScopeComponent;
     
     @Override
     public <T> T getEndpointInstance(Class<T> endpointClass) throws InstantiationException {
         T endpoint = super.getEndpointInstance(endpointClass);
-        if (endpoint instanceof BasicWebSocket)
-            ((BasicWebSocket) endpoint).setCounter(appComponent);
+        if (endpoint instanceof BasicWebSocket basicWebSocket)
+            basicWebSocket.setCounter(appScopeComponent);
         return endpoint;
     }
 }
