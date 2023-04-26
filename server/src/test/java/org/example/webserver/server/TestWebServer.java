@@ -20,7 +20,6 @@ import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -63,7 +62,10 @@ public class TestWebServer {
     
     private static void registerWebSocketEndpoints(ServletContextHandler contextHandler, AppScopeComponent appScopeComponent) {
         JakartaWebSocketServletContainerInitializer.configure(contextHandler, (servletContext, serverContainer) -> {
-            ServerEndpointConfig websocketConfig = ServerEndpointConfig.Builder.create(BasicWebSocket.class, "/the/best/websocket").configurator(new BasicWebSocketConfigurator(appScopeComponent)).build();
+            ServerEndpointConfig websocketConfig = ServerEndpointConfig.Builder
+                    .create(BasicWebSocket.class, "/the/best/websocket")
+                    .configurator(new BasicWebSocketConfigurator(appScopeComponent))
+                    .build();
             serverContainer.addEndpoint(websocketConfig);
         });
     }
