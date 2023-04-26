@@ -101,7 +101,7 @@ public class TestWebServer {
     
     @Order(3)
     @Test
-    void testBasicUserJSON() throws IOException, InterruptedException, URISyntaxException {
+    void testBasicUserJSON() throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newHttpClient();
         URI userURI = UriBuilder.fromUri(BASE_ENDPOINT_URI).path("user").build();
         HttpRequest request = HttpRequest.newBuilder(userURI).GET().header("Accept", "application/json").build();
