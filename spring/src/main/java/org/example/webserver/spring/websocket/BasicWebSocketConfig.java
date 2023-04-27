@@ -3,23 +3,27 @@ package org.example.webserver.spring.websocket;
 import jakarta.websocket.server.ServerEndpointConfig;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.websocket.jakarta.server.config.JakartaWebSocketServletContainerInitializer;
-import org.example.webserver.server.AppScopeComponent;
+import org.example.webserver.server.InjectableComponentInterface;
 import org.example.webserver.server.websocket.BasicWebSocket;
-import org.example.webserver.spring.AppScopeComponentConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
+/**
+ * Configuration class for creating and customizing the Jetty WebSocket server for {@link BasicWebSocket}.
+ */
 @Configuration
-@Import(AppScopeComponentConfig.class)
 public class BasicWebSocketConfig {
     
     @Autowired
-    private AppScopeComponent appScopeComponent;
+    private InjectableComponentInterface counter;
     
+    /**
+     * Creates a new instance of {@link WebServerFactoryCustomizer} to customize the Jetty WebSocket server.
+     * Adds a server customizer to configure the {@link BasicWebSocket} endpoint.
+     */
     @Bean
     public WebServerFactoryCustomizer<JettyServletWebServerFactory> jettyWebSocketCustomizer() {
         return factory -> factory.addServerCustomizers(server -> {
@@ -27,7 +31,7 @@ public class BasicWebSocketConfig {
             JakartaWebSocketServletContainerInitializer.configure(contextHandler, (servletContext, serverContainer) -> {
                 ServerEndpointConfig config = ServerEndpointConfig.Builder
                         .create(BasicWebSocket.class, "/the/best/websocket")
-                        .configurator(new BasicWebSocketConfigurator(appScopeComponent))
+                        .configurator(new BasicWebSocketConfigurator(counter))
                         .build();
                 serverContainer.addEndpoint(config);
             });
