@@ -4,6 +4,9 @@ import jakarta.websocket.*;
 
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * A WebSocket client endpoint that listens for messages and adds them to a blocking queue.
+ */
 @ClientEndpoint
 public class WebSocketClient {
     

@@ -12,10 +12,16 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 
+/**
+ * A WebSocket endpoint that provides a count-up functionality and message broadcasting.
+ */
 @Log
 @ServerEndpoint("/the/best/websocket")
 public class BasicWebSocket {
     
+    /**
+     * The counter component to keep track of how many times the WebSocket endpoint has been called.
+     */
     @Inject
     @Setter
     private InjectableComponentInterface counter;
@@ -28,6 +34,10 @@ public class BasicWebSocket {
         SESSIONS.add(session);
     }
     
+    /**
+     * Called when a message is received from a WebSocket session.
+     * Increases the counter component by 1 and sends a message back to the session.
+     */
     @OnMessage
     public void onMessage(String message, Session session) throws EncodeException, IOException {
         int count = counter.countUp();
@@ -35,6 +45,9 @@ public class BasicWebSocket {
         session.getBasicRemote().sendObject(String.format("This endpoint was called %d %s", count, (count == 1 ? "time" : "times")));
     }
     
+    /**
+     * Sends a message to all connected WebSocket sessions.
+     */
     public void broadcastMessage(String message) {
         for (Session session : SESSIONS) {
             try {

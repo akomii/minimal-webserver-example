@@ -11,14 +11,24 @@ import org.example.webserver.server.InjectableComponentInterface;
 
 import java.util.logging.Level;
 
+/**
+ * An endpoint that provides a "Hello World" message and a basic user object as a RESTful API.
+ */
 @Log
 @Path("/the/best/rest")
 public class BasicEndpoint {
     
+    /**
+     * The counter component to keep track of how many times the endpoint has been called.
+     */
     @Inject
     @Setter
     private InjectableComponentInterface counter;
     
+    /**
+     * Provides a "Hello World" message in plain text format.
+     * Increases the counter component by 1 each time this method is called.
+     */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getHelloWorld() {
@@ -27,6 +37,9 @@ public class BasicEndpoint {
         return String.format("You called Hello World %d %s", count, (count == 1 ? "time" : "times"));
     }
     
+    /**
+     * Provides a basic user object in either XML or JSON format.
+     */
     @GET
     @Path("/user")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

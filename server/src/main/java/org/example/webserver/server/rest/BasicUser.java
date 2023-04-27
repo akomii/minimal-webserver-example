@@ -7,6 +7,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+/**
+ * Represents a basic user with an ID, first name, and last name.
+ * This class is used for XML serialization and deserialization in the REST API.
+ */
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
 @NoArgsConstructor
