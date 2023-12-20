@@ -23,7 +23,8 @@ A minimalist REST and WebSocket server example using Jetty and Jersey.
 2. **Open the terminal/command prompt**: Navigate to the project folder `minimal-webserver-example` using the terminal (Mac/Linux) or command prompt (Windows).
 
 
-3. **Build the project**: Run the following command to build and package the project: `mvn clean package`. This command will download the required dependencies, compile the project, and package it into an executable JAR file. The final JAR file will be located in the directory `spring/target`, and its name will be `spring-1.0-SNAPSHOT.jar`.
+3. **Build the project**: Run the following command to build and package the project: `mvn clean package`. This command will download the required dependencies, compile the project, and package it into an executable JAR file.
+   The final JAR file will be located in the directory `spring/target`, and its name will be `spring-1.0-SNAPSHOT.jar`.
 
 
 4. **Run the application**: Execute the following command: `java -jar spring/target/spring-1.0-SNAPSHOT.jar`. This will start the Spring Boot application, and it will be accessible locally.
