@@ -1,6 +1,6 @@
 ## minimal-webserver-example ![Java 17](https://img.shields.io/badge/Java-17-green) ![Jakarta EE9](https://img.shields.io/badge/Jakarta-EE9-blue) ![Spring Boot 3.0.5](https://img.shields.io/badge/Spring--Boot-3.0.5-green)
 
-A minimalist REST and WebSocket server example using Jetty and Jersey.
+This project is a Spring Boot application that provides a web server with REST and WebSocket endpoints, configured with Jersey and Jetty respectively, and uses dependency injection to manage a shared component across the application.
 
 ### Modules
 
